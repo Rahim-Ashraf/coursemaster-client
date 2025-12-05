@@ -65,7 +65,6 @@ export default function UpdateCourse() {
     const handleUpdate = async (data: Course) => {
         setError(null);
         isSubmitting(true)
-        console.log(data)
         try {
             await api.put(`/courses/${course?._id}`, data);
             alert("Course updated successfully!");

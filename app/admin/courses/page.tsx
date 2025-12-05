@@ -31,7 +31,7 @@ export default function CourseManagementPage() {
             setError(null);
             try {
                 const response = await api.get("/courses")
-                setCourses(response.data.courses || response.data)
+                setCourses(response.data.courses)
             } catch (err: any) {
                 setError(err.response?.data?.message || "Failed to fetch courses");
             }

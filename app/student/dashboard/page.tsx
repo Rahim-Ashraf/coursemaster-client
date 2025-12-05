@@ -21,7 +21,7 @@ interface EnrolledCourse {
 export default function StudentDashboardPage() {
     useAuthRedirect({ requiredRole: "student" });
     const { user } = useSelector((state: RootState) => state.auth);
-    
+
     const [enrolledCourses, setEnrolledCourses] = useState<EnrolledCourse[]>([]);
     const [completed, setCompleted] = useState(0);
     const [loading, setLoading] = useState(true);
@@ -69,9 +69,7 @@ export default function StudentDashboardPage() {
                     <p className="text-gray-600">You have not enrolled in any courses yet.</p>
                 ) : (
                     <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                        {enrolledCourses.map((enrollment) => {
-                            console.log(enrollment)
-                            return(
+                        {enrolledCourses.map((enrollment) => (
                             <div key={enrollment._id} className="rounded-lg border border-gray-200 p-4 shadow-sm">
                                 <h3 className="mb-2 text-xl font-semibold text-gray-800">
                                     <Link href={`/courses/${enrollment.course._id}/consume`} className="hover:text-indigo-600">
@@ -87,7 +85,7 @@ export default function StudentDashboardPage() {
                                     Continue Learning
                                 </Link>
                             </div>
-                        )})}
+                        ))}
                     </div>
                 )}
                 <div className="my-6 h-8 w-full rounded-full bg-gray-200">

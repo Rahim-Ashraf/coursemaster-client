@@ -38,7 +38,6 @@ export default function CreateCourse() {
 
     const handleCreate = async (data: Course) => {
         isSubmitting(true)
-        console.log(data)
         try {
             await api.post('/courses', data);
             alert("Course added successfully!");
