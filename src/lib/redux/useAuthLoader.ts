@@ -25,7 +25,6 @@ export const useAuthLoader = () => {
 
         try {
             const {user} = jwtDecode<JwtPayload>(token);
-            console.log(user)
             dispatch(
                 setCredentials({
                     token,

@@ -40,7 +40,7 @@ export default function CourseListingPage() {
                 params.append("page", page.toString());
                 params.append("limit", '2');
                 if (searchTerm) params.append("search", searchTerm);
-                if (sortBy) params.append("sortBy", sortBy);
+                if (sortBy) params.append("sort", sortBy);
                 if (categoryFilter) params.append("filter", categoryFilter);
 
                 const response = await api.get(`/courses?${params.toString()}`);
@@ -67,6 +67,7 @@ export default function CourseListingPage() {
 
     const handleSortChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
         setSortBy(e.target.value);
+        setPage(1)
     };
 
     const handleCategoryChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
@@ -115,7 +116,6 @@ export default function CourseListingPage() {
                     className="rounded-md border border-gray-300 p-2 shadow-sm"
                 >
                     <option value="">All Categories</option>
-                    {/* TODO: Dynamically load categories from API */}
                     <option value="Programming">Programming</option>
                     <option value="Design">Design</option>
                     <option value="Marketing">Marketing</option>

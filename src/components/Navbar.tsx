@@ -26,7 +26,7 @@ export default function Navbar() {
                         }>Courses</Link>
                     </div>
                 </div>
-                {session.isAuthenticated && <div className="w-1/3 flex justify-between">
+                {session.isAuthenticated ? <div className="w-1/3 flex justify-between">
                     <div>
                         <Link href={session.role === "admin" ? "/admin/dashboard"
                             : "/student/dashboard"}
@@ -38,7 +38,11 @@ export default function Navbar() {
                         <button onClick={() => dispatch(logout())}
                             className="bg-rose-600 text-white font-semibold px-4 py-2 rounded-2xl cursor-pointer">Logout</button>
                     </div>
-                </div>}
+                </div>
+                    : <div>
+                        <Link href="/auth/login"
+                            className="prm-btn">Login</Link>
+                    </div>}
             </div>
         </div>
     );

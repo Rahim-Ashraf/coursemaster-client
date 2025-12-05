@@ -2,11 +2,12 @@
 
 import { SubmitHandler, useForm } from "react-hook-form";
 import { useRouter } from "next/navigation";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import api from "@/src/lib/api";
 import { setCredentials } from "@/src/lib/redux/authSlice";
 import { jwtDecode } from "jwt-decode";
+import { RootState } from "@/src/lib/redux/store";
 
 type Inputs = {
     email: string
@@ -24,7 +25,11 @@ type JwtPayload = {
 }
 
 export default function LoginPage() {
+    const { isAuthenticated, role } = useSelector((state: RootState) => state.auth);
     const router = useRouter();
+    if (isAuthenticated) {
+        router.push(`/${role}/dashboard`)
+    }
     const dispatch = useDispatch();
     const [error, setError] = useState<string | null>(null);
 
