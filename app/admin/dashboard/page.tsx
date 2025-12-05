@@ -14,8 +14,8 @@ export default function AdminDashboardPage() {
     }
 
     return (
-        <div className="min-h-screen bg-gray-100 p-8 flex">
-            <div className="w-1/6 flex flex-col gap-4 text-indigo-800 font-semibold">
+        <div className="min-h-screen bg-gray-100 p-8 flex gap-4">
+            <div className="w-1/6 flex flex-col gap-4 text-indigo-800 font-semibold border-r border-gray-400">
                 <Link href='/admin/courses'>Courses</Link>
                 <Link href='/admin/enrollments'>Enrollments</Link>
                 <Link href='/admin/assignments'>Assignments</Link>

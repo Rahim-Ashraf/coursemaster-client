@@ -18,10 +18,8 @@ interface Course {
 export default function CourseCard({ course }: { course: Course }) {
     return (
         <div className="rounded-lg bg-white p-6 shadow-md">
-            <h2 className="mb-2 text-2xl font-semibold text-gray-800">
-                <Link href={`/courses/${course._id}`} className="hover:text-indigo-600">
-                    {course.title}
-                </Link>
+            <h2 className="mb-2 text-2xl font-semibold text-gray-800 hover:text-indigo-600">
+                {course.title}
             </h2>
             <p className="mb-2 text-gray-600">Instructor: {course.instructor}</p>
             <p className="mb-4 text-gray-700">{course.description.substring(0, 100)}...</p>
